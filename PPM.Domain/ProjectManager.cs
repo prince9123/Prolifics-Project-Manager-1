@@ -87,6 +87,12 @@ namespace PPM.Domain
             }
             return result;
         }
+
+        public object AddEmployeetoProject(Project p2)
+        {
+            throw new NotImplementedException();
+        }
+
         public Result DELETE_employeefromProj(Employee emp, int Pro_Id2)
         {
             Result result = new Result() { IsSuccess = true };

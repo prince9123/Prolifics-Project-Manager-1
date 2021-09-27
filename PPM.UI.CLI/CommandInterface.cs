@@ -78,7 +78,7 @@ namespace PPM.UI.CLI
                                 c++;
 
                             }
-                        } 
+                        }
                         else
                         {
                             Console.WriteLine(PP.Status);
@@ -109,7 +109,7 @@ namespace PPM.UI.CLI
                         {
                             Console.WriteLine(pe.Status);
                         }
-                      
+
                         break;
                     case 4:
                         EmployeeManager employeeManage = new EmployeeManager();
@@ -175,9 +175,10 @@ namespace PPM.UI.CLI
                         var resultPro = projectctmana.GetProjectInfo();
                         if (resultPro.IsSuccess)
                         {
-                            foreach (Project Result in resultPro.results) { 
-                             Console.WriteLine("Project ID: " + Result.Pro_Id + "\nProject Name: " + Result.Name + "\nStarting Date: " + Result.Start_Date + "\nEnd_Date: " + Result.End_Date + "\nBudget: " + Result.Budget);
-                            
+                            foreach (Project Result in resultPro.results)
+                            {
+                                Console.WriteLine("Project ID: " + Result.Pro_Id + "\nProject Name: " + Result.Name + "\nStarting Date: " + Result.Start_Date + "\nEnd_Date: " + Result.End_Date + "\nBudget: " + Result.Budget);
+
                                 Console.WriteLine("Employee Assigned: ");
                                 if (Result.EmpList != null)
                                 {
@@ -225,6 +226,7 @@ namespace PPM.UI.CLI
                 Console.WriteLine(resultRole.Status);
             }
             else
+
             {
                 Console.WriteLine(resultRole.Status);
             }
@@ -232,7 +234,7 @@ namespace PPM.UI.CLI
         }
 
 
-        private static bool AddEmployeetoProject()
+        public static bool AddEmployeetoProject()
         {
             Employee emp = new Employee();
             Console.WriteLine("Provide the project Id: ");
@@ -265,7 +267,7 @@ namespace PPM.UI.CLI
             return valid.IsSuccess;
 
         }
-        private static bool DELETE_employeefromProj()
+        public static bool DELETE_employeefromProj()
         {
             Employee emp = new Employee();
             Console.WriteLine("Enter project Proj_id");
@@ -297,8 +299,6 @@ namespace PPM.UI.CLI
         }
     }
 }
-
-
    
 
 

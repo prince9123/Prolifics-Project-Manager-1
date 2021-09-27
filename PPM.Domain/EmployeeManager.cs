@@ -7,7 +7,7 @@ using PPM.Model;
 namespace Domain
 {
     public class EmployeeManager
-    {
+    { 
         private static List<Employee> _employeeList;
         static EmployeeManager()
         {
@@ -70,8 +70,10 @@ namespace Domain
                 Console.WriteLine("error occured" + e.ToString());
             }
             return result;
-
         }
+
+       
     }
 }
+
 

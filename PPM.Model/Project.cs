@@ -13,7 +13,7 @@ namespace PPM.Model
         public DateTime Start_Date { get; set; }
         public DateTime End_Date { get; set; }
         public decimal Budget { get; set; }
-
+        public string EmpName { get; set; }
         public List<Employee> EmpList;
     }
 }
