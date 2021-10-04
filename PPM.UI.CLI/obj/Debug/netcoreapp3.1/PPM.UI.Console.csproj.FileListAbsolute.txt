@@ -1,0 +1,15 @@
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\bin\Debug\netcoreapp3.1\PPM.UI.Console.deps.json
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\bin\Debug\netcoreapp3.1\PPM.UI.Console.dll
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\bin\Debug\netcoreapp3.1\PPM.UI.Console.pdb
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\bin\Debug\netcoreapp3.1\PPM.Domain.dll
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\bin\Debug\netcoreapp3.1\PPM.Model.dll
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\bin\Debug\netcoreapp3.1\PPM.Domain.pdb
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\bin\Debug\netcoreapp3.1\PPM.Model.pdb
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.csproj.AssemblyReference.cache
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.AssemblyInfoInputs.cache
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.AssemblyInfo.cs
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.csproj.CoreCompileInputs.cache
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.csproj.CopyComplete
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.dll
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.UI.CLI\obj\Debug\netcoreapp3.1\PPM.UI.Console.pdb

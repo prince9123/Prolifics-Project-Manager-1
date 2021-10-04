@@ -11,6 +11,8 @@ namespace PPM.Model
 {
     public class Employee
     {
+        public string Rolename;
+
         public int ID { get; set; }
         public string EmpName { get; set; }
         public long Contact { get; set; }
