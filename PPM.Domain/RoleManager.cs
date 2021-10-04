@@ -22,6 +22,16 @@ namespace PPM.Domain
             {
                 Console.WriteLine("Error Ocurred!" + ex.ToString());
             }
+            var resultRole = AddRole(ROLE);
+            if (!resultRole.IsSuccess)
+            {
+                Console.WriteLine("Role failed to Add");
+                Console.WriteLine(resultRole.Status);
+            }
+            else
+            {
+                Console.WriteLine(resultRole.Status);
+            }
         }
             public Result AddRole(Role ROLE)
             {

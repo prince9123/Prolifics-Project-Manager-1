@@ -14,22 +14,31 @@ namespace Domain
             Employee employee = new Employee();
             try
             {
-                Employee emp = new Employee();
                 Console.WriteLine("Enter employee ID");
-                emp.ID = Convert.ToInt32(Console.ReadLine());
+                employee.ID = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter the  name of employee");
-                emp.EmpName = Console.ReadLine();
+                employee.EmpName = Console.ReadLine();
                 Console.WriteLine("Enter employee Contact");
-                emp.Contact = Convert.ToInt64(Console.ReadLine());
+                employee.Contact = Convert.ToInt64(Console.ReadLine());
                 Console.WriteLine("Enter empoyee email");
-                emp.Email = Console.ReadLine();
+                employee.Email = Console.ReadLine();
                 Console.WriteLine("Enter the RoleId");
-                emp.Role_id = Convert.ToInt32(Console.ReadLine());
+                employee.Role_id = Convert.ToInt32(Console.ReadLine());
                 EmployeeManager employeeManager = new EmployeeManager();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error Ocurred!" + ex.ToString());
+            }
+            var resultEmployee = AddEmployee(employee);
+            if (!resultEmployee.IsSuccess)
+            {
+                Console.WriteLine("Employee failed to Add");
+                Console.WriteLine(resultEmployee.Status);
+            }
+            else
+            {
+                Console.WriteLine(resultEmployee.Status);
             }
         }
 
@@ -144,6 +153,14 @@ namespace Domain
                 Console.WriteLine("error occured" + e.ToString());
             }
             return result;
+        }
+
+        public Employee GetEmployeetorole(Employee employeeId)
+        {
+            Employee emp = new Employee();
+            emp.Rolename = _employeeList.Single(e => e.ID == employeeId.ID).Rolename;
+            emp.EmpName = _employeeList.Single(e => e.ID == employeeId.ID).EmpName;
+            return emp;
         }
     }
 }

@@ -58,7 +58,8 @@ namespace PPM.UI.CLI
             Console.WriteLine("Press 2: List Project");
             Console.WriteLine("Press 3: List Project by Id");
             Console.WriteLine("Press 4: Delete Project");
-            Console.WriteLine("Press 5: Go to main Menu");
+            Console.WriteLine("Press 5: Add Employee to project");
+            Console.WriteLine("Press 6: Go to main Menu");
             int j = 0;
             while (true)
             {
@@ -113,6 +114,9 @@ namespace PPM.UI.CLI
                             m1.DeleteProjectById();
                             break;
                         case 5:
+                            m1.AddEmployeetoProject();
+                            break;
+                        case 6:
                             StartProject();
                             break;
                         default:
@@ -230,7 +234,7 @@ namespace PPM.UI.CLI
                             var Resrole = m3.GetAllRole();
                             if (Resrole.IsSuccess)
                             {
-                                foreach (Role e2 in Resrole.results)
+                                foreach (Role e2 in Resrole.results) 
                                 {
                                     Console.WriteLine("Role Id: " + e2.RoleID + "\nRole Name: " + e2.Rolename);
 
@@ -284,25 +288,4 @@ namespace PPM.UI.CLI
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-           
-
-
-
-            
-
-
-        
-
-    
 
