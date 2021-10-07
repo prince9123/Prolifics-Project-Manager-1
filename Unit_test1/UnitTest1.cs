@@ -20,7 +20,7 @@ namespace Unit_test1
             P1.Start_Date = Convert.ToDateTime("1-3-2021");
             P1.End_Date = Convert.ToDateTime("3-3-2021");
             P1.Budget = 2000;
-            var V2 = Pro.AddProject(P1);
+            var V2 = Pro.Add(P1);
             if (V2.IsSuccess)
             {
                 Assert.Pass();
@@ -47,7 +47,7 @@ namespace Unit_test1
             E1.Contact = 9123446828;
             E1.Email = "prince.kumar@prolifics.com";
             E1.Role_id = 20;
-            var V3 = Emo.AddEmployee(E1);
+            var V3 = Emo.Add(E1);
             if (V3.IsSuccess)
             {
                 Assert.Pass();
@@ -64,7 +64,7 @@ namespace Unit_test1
             Role RR = new Role();
             RR.RoleID = 2;
             RR.Rolename = "SD-1";
-            var v4 = role.AddRole(RR);
+            var v4 = role.Add(RR);
             if (v4.IsSuccess)
             {
                 Assert.Pass();

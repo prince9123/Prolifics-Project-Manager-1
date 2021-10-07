@@ -75,7 +75,7 @@ namespace PPM.UI.CLI
                             break;
                         case 2:
                             Console.WriteLine("Project Details: ");
-                            var ResPro = m1.GetAllProject();
+                            var ResPro = m1.ListAll();
                             if (ResPro.IsSuccess)
                             {
                                 foreach (Project result1 in ResPro.results)
@@ -93,7 +93,7 @@ namespace PPM.UI.CLI
                             Console.WriteLine("Enter project id which u want to display");
                             int n1 = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Project Details:");
-                            var ResPro1 = m1.GetAllProject();
+                            var ResPro1 = m1.ListAll();
                             if (ResPro1.IsSuccess)
                             {
                                 foreach (Project result1 in ResPro1.results)
@@ -155,7 +155,7 @@ namespace PPM.UI.CLI
                             break;
                         case 2:
                             Console.WriteLine("Employee Details: ");
-                            var ResEmp = m2.GetAllEmployee();
+                            var ResEmp = m2.ListAll();
                             if (ResEmp.IsSuccess)
                             {
                                 foreach (Employee e1 in ResEmp.results)
@@ -175,7 +175,7 @@ namespace PPM.UI.CLI
                             Console.WriteLine("Enter Employee id which u want to display");
                             int E1 = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Employee Details: ");
-                            var ResEmp1 = m2.GetAllEmployee();
+                            var ResEmp1 = m2.ListAll();
                             if (ResEmp1.IsSuccess)
                             {
                                 foreach (Employee e1 in ResEmp1.results)
@@ -231,7 +231,7 @@ namespace PPM.UI.CLI
                             break;
                         case 2:
                             Console.WriteLine("Role Details: ");
-                            var Resrole = m3.GetAllRole();
+                            var Resrole = m3.ListAll();
                             if (Resrole.IsSuccess)
                             {
                                 foreach (Role e2 in Resrole.results) 
@@ -250,7 +250,7 @@ namespace PPM.UI.CLI
                             Console.WriteLine("Enter project id which u want to display");
                             int n1 = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Project Details:");
-                            var Resrole1 = m3.GetAllRole();
+                            var Resrole1 = m3.ListAll();
                             if (Resrole1.IsSuccess)
                             {
                                 foreach (Role e2 in Resrole1.results)

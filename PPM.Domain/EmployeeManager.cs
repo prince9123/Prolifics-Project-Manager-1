@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PPM.Domain;
 using PPM.Model;
 namespace Domain
 {
-    public class EmployeeManager
+    public class EmployeeManager : IOperations<Employee>
     {
         private static List<Employee> _employeeList = new List<Employee>();
         public void AddEmployee()
@@ -30,7 +31,7 @@ namespace Domain
             {
                 Console.WriteLine("Error Ocurred!" + ex.ToString());
             }
-            var resultEmployee = AddEmployee(employee);
+            var resultEmployee = Add(employee);
             if (!resultEmployee.IsSuccess)
             {
                 Console.WriteLine("Employee failed to Add");
@@ -42,7 +43,7 @@ namespace Domain
             }
         }
 
-        public Result AddEmployee(Employee emp)
+        public Result Add(Employee emp)
         {
             Result result = new Result() { IsSuccess = true };
             try
@@ -58,7 +59,7 @@ namespace Domain
             return result;
 
         }
-        public Data_Result<Employee> GetAllEmployee()
+        public Data_Result<Employee> ListAll()
         {
             Data_Result<Employee> result = new Data_Result<Employee>() { IsSuccess = true };
             if (_employeeList.Count > 0)
@@ -72,36 +73,46 @@ namespace Domain
             }
             return result;
         }
-        public void DeleteEmployeeByID()
+
+        public  void DeleteEmployeeByID()
         {
-            EmployeeManager employeeManager = new EmployeeManager();
-            //Employee employee = new Employee();
-            Console.WriteLine("Choose Employee From Below Employee List: Employee ID:Employee Name");
-            var ResEmp = GetAllEmployee();
-            if (ResEmp.IsSuccess)
+            Console.WriteLine("Choose Employee From Below Employee List: Employee ID:Employee First Name");
+            var resPro = ListAll();
+            if (resPro.IsSuccess)
             {
-                foreach (Employee res in ResEmp.results)
+                foreach (Employee res in resPro.results)
                 {
                     Console.WriteLine(res.ID + " : " + res.EmpName);
                 }
             }
             else
             {
-                Console.WriteLine(ResEmp.Status);
+                Console.WriteLine(resPro.Status);
             }
-            Console.Write("Enter The project Id wchich u want delete ");
-            int Employeeid = Convert.ToInt32(Console.ReadLine());
-            var result = RemoveEmployee(Employeeid);
-            if (!result.IsSuccess)
+            Console.Write("Enter The Employee Id wchich u want delete ");
+            int n2 = Convert.ToInt32(Console.ReadLine());
+            ProjectManager m1 = new ProjectManager();
+            var result1 = m1.IsEmployeePresentinProject(n2);
+            if (!result1.IsSuccess)
             {
-                Console.WriteLine(result.Status);
+                var result = Remove(n2);
+                if (!result.IsSuccess)
+                {
+                    Console.WriteLine("Employee is not deleted");
+                    Console.WriteLine(result.Status);
+                }
+                else
+                {
+                    Console.WriteLine(result.Status);
+                }
             }
             else
             {
-                Console.WriteLine(result.Status);
+                Console.WriteLine(result1.Status);
             }
         }
-        public static Result RemoveEmployee(int Employeeid)
+       
+        public Result Remove(int Employeeid)
         {
             Employee employee = new Employee();
             Result valid = new Result() { IsSuccess = true };
@@ -164,6 +175,8 @@ namespace Domain
         }
     }
 }
+
+
 
 
 

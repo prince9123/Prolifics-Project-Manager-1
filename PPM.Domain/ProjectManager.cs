@@ -5,7 +5,7 @@ using Domain;
 using PPM.Model;
 namespace PPM.Domain
 {
-    public class ProjectManager
+    public class ProjectManager : IOperations<Project>
     {
         public static List<Project> _projectList = new List<Project>();
 
@@ -29,7 +29,7 @@ namespace PPM.Domain
             {
                 Console.WriteLine("Error Ocurred!" + e.ToString());
             }
-            var resultProject = AddProject(project);
+            var resultProject = Add(project);
             if (!resultProject.IsSuccess)
             {
                 Console.WriteLine("Project failed to Add");
@@ -40,9 +40,8 @@ namespace PPM.Domain
                 Console.WriteLine(resultProject.Status);
             }
         }
-
-
-         public Result AddProject(Project Proj)
+     
+         public Result Add(Project Proj)
         {
             Result result = new Result() { IsSuccess = true };
             try
@@ -57,7 +56,7 @@ namespace PPM.Domain
             }
             return result;
         }
-        public Data_Result<Project> GetAllProject()
+        public Data_Result<Project> ListAll()
         {
             Data_Result<Project> result = new Data_Result<Project>() { IsSuccess = true };
             if (_projectList.Count > 0)
@@ -79,11 +78,11 @@ namespace PPM.Domain
             ProjectManager projectManager = new ProjectManager();
             //Employee employee = new Employee();
             Console.WriteLine("Choose Project From Below Project List: Project ID:Project Name");
-            var resPro = GetAllProject();
+            var resPro = ListAll();
             if (resPro.IsSuccess)
             {
                 foreach (Project res in resPro.results)
-                {
+                { 
                     Console.WriteLine(res.Pro_Id + " : " + res.Name);
                 }
             }
@@ -93,7 +92,7 @@ namespace PPM.Domain
             }
             Console.Write("Enter The project Id wchich u want delete ");
             int projectId = Convert.ToInt32(Console.ReadLine());
-            var result = RemoveProject(projectId);
+            var result = Remove(projectId);
             if (!result.IsSuccess)
             {
                 Console.WriteLine(result.Status);
@@ -102,9 +101,10 @@ namespace PPM.Domain
             {
                 Console.WriteLine(result.Status);
             }
+            
         }
 
-        public static Result RemoveProject(int id)
+        public Result Remove(int id)
         {
             Project project = new Project();
             Result action = new Result() { IsSuccess = true };
@@ -130,7 +130,7 @@ namespace PPM.Domain
             return action;
         }
 
-        public Result DELETE_employeefromProj(Employee emp, int Pro_Id2)
+        public Result Remove(Employee emp, int Pro_Id2)
         {
             Result result = new Result() { IsSuccess = true };
             Project project = new Project();
@@ -170,7 +170,7 @@ namespace PPM.Domain
             EmployeeManager m1 = new EmployeeManager();
             Employee employee = new Employee();
             Console.WriteLine("Choose Project From Below Project List: Project ID:Project Name");
-            var resPro = GetAllProject();
+            var resPro = ListAll ();
             if (resPro.IsSuccess)
             {
                 foreach (Project result in resPro.results)
@@ -185,7 +185,7 @@ namespace PPM.Domain
             Console.Write("Provide the project Id: ");
             int projectId = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Below is the Employee ID and respective Name to choose:");
-            var res = m1.GetAllEmployee();
+            var res = m1.ListAll();
             if (res.IsSuccess)
             {
                 foreach (Employee e in res.results)
@@ -227,6 +227,36 @@ namespace PPM.Domain
                 Console.WriteLine(valid.Status);
             }
         }
+        public Result IsEmployeePresentinProject(int Pro_Id1)
+        {
+            Result result = new Result() { IsSuccess = true };
+            uint count = 0;
+            if (_projectList.Count > 0)
+            {
+                foreach (Project Pro in _projectList)
+                {
+                    if (Pro.EmpList.Exists(prop => prop.ID == Pro_Id1))
+                    {
+                        count++;
+                    }
+                }
+                if (count > 0)
+                {
+                    result.Status = "Employee is present!";
+                }
+                else
+                {
+                    result.IsSuccess = false;
+                    result.Status = "Employee is not present in any project!";
+                }
+            }
+            else
+            {
+                result.IsSuccess = false;
+            }
+            return result;
+            
+        }
 
 
         public Result AddEmployeetoProject(Employee emp, int Pro_Id1)
@@ -267,8 +297,12 @@ namespace PPM.Domain
                     result.IsSuccess = false;
                     result.Status = "Project list is Empty!";
                 }
-
             }
+
+
+
+
+
             catch (Exception e)
             {
                 result.IsSuccess = false;

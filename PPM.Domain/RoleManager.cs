@@ -5,7 +5,7 @@ using System.Text;
 using PPM.Model;
 namespace PPM.Domain
 {
-    public class RoleManager
+    public class RoleManager : IOperations<Role>
     {
         private static List<Role>_roleList = new List<Role>();
         public void AddRole()
@@ -13,7 +13,7 @@ namespace PPM.Domain
             Role ROLE = new Role();
             try
             {
-                Console.Write("Enter Role ID: ");
+                Console.Write("Enter Role ID: "); 
                 ROLE.RoleID = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Enter Role Name: ");
                 ROLE.Rolename = Console.ReadLine().ToUpper();
@@ -22,7 +22,7 @@ namespace PPM.Domain
             {
                 Console.WriteLine("Error Ocurred!" + ex.ToString());
             }
-            var resultRole = AddRole(ROLE);
+            var resultRole = Add(ROLE);
             if (!resultRole.IsSuccess)
             {
                 Console.WriteLine("Role failed to Add");
@@ -33,7 +33,11 @@ namespace PPM.Domain
                 Console.WriteLine(resultRole.Status);
             }
         }
-            public Result AddRole(Role ROLE)
+        //public interface IOperations<T>
+        //Add Result Add(T t)
+               //ListById
+        //Delete Result Remove(int id)
+        public Result Add(Role ROLE)
             {
             Result result = new Result() { IsSuccess = true };
 
@@ -49,7 +53,7 @@ namespace PPM.Domain
             }
             return result;
             }
-        public Data_Result<Role> GetAllRole()
+        public Data_Result<Role> ListAll()
         {
             Data_Result<Role> data = new Data_Result<Role> { IsSuccess = true };
             if (_roleList.Count > 0)
@@ -69,7 +73,7 @@ namespace PPM.Domain
             RoleManager projectManager = new RoleManager();
             //Employee employee = new Employee();
             Console.WriteLine("Choose Role From Below Role List: Role ID:Role Name");
-            var Resrole = GetAllRole();
+            var Resrole = ListAll();
             if (Resrole.IsSuccess)
             {
                 foreach (Role res in Resrole.results)
@@ -81,9 +85,9 @@ namespace PPM.Domain
             {
                 Console.WriteLine(Resrole.Status);
             }
-            Console.Write("Enter The project Id wchich u want delete ");
+            Console.Write("Enter The Role Id wchich u want delete ");
             int RoleId = Convert.ToInt32(Console.ReadLine());
-            var result = RemoveProject(RoleId);
+            var result = Remove(RoleId);
             if (!result.IsSuccess)
             {
                 Console.WriteLine(result.Status);
@@ -93,7 +97,7 @@ namespace PPM.Domain
                 Console.WriteLine(result.Status);
             }
         }
-        public static Result RemoveProject(int id)
+        public Result Remove(int id)
         {
             Role role = new Role();
             Result action = new Result() { IsSuccess = true };
