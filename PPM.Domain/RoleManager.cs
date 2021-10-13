@@ -7,7 +7,7 @@ namespace PPM.Domain
 {
     public class RoleManager : IOperations<Role>
     {
-        private static List<Role>_roleList = new List<Role>();
+        public static List<Role>_roleList = new List<Role>();
         public void AddRole()
         {
             Role ROLE = new Role();

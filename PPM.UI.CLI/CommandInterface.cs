@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using Domain;
-using MySqlX.XDevAPI.Common;
 using PPM.Domain;
 using PPM.Model;
 
 namespace PPM.UI.CLI
 {
-    public class CommandInterface
+    public class CommandInterface 
     {
+
         public void StartProject()
         {
 
@@ -16,12 +18,14 @@ namespace PPM.UI.CLI
             Console.WriteLine("Press 1: Project Module");
             Console.WriteLine("Press 2: Employee Module");
             Console.WriteLine("Press 3: Role Module");
-            Console.WriteLine("Press 4: Exit");
+            Console.WriteLine("Press 4: Save into xml File");
+            Console.WriteLine("Press 5: Exit");
             int i = 0;
             while (true)
             {
                 try
                 {
+
                     Console.WriteLine("choose the given option: ");
                     i = Convert.ToInt32(Console.ReadLine());
                     switch (i)
@@ -34,6 +38,10 @@ namespace PPM.UI.CLI
                             break;
                         case 3:
                             RoleModule();
+                            break;
+                        case 4:
+                            save p = new save();
+                            p.Save();
                             break;
                         default:
                             Console.WriteLine("Option is not in the list!");
@@ -50,7 +58,6 @@ namespace PPM.UI.CLI
             }
         }
 
-
         public void ProjectModule()
         {
             Console.WriteLine("Choose the option you want to select:");
@@ -65,7 +72,7 @@ namespace PPM.UI.CLI
             {
                 try
                 {
-                    Console.WriteLine("Choose Your Option from 1 to 5: ");
+                    Console.WriteLine("Choose Your Option from 1 to 6 : ");
                     j = Convert.ToInt32(Console.ReadLine());
                     ProjectManager m1 = new ProjectManager();
                     switch (j)
@@ -234,7 +241,7 @@ namespace PPM.UI.CLI
                             var Resrole = m3.ListAll();
                             if (Resrole.IsSuccess)
                             {
-                                foreach (Role e2 in Resrole.results) 
+                                foreach (Role e2 in Resrole.results)
                                 {
                                     Console.WriteLine("Role Id: " + e2.RoleID + "\nRole Name: " + e2.Rolename);
 
@@ -287,5 +294,3 @@ namespace PPM.UI.CLI
         }
     }
 }
-
-

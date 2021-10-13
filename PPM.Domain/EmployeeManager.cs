@@ -9,7 +9,7 @@ namespace Domain
 {
     public class EmployeeManager : IOperations<Employee>
     {
-        private static List<Employee> _employeeList = new List<Employee>();
+        public static List<Employee> _employeeList = new List<Employee>();
         public void AddEmployee()
         {
             Employee employee = new Employee();
