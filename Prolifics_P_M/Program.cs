@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Prolifics_P_M
 {
-    public class Program
+    public  class Program
     {
         public static void Main()
         {

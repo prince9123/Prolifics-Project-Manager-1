@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Domain;
+﻿using Domain;
 using PPM.Model;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
+using System.Xml.Serialization;
 namespace PPM.Domain
 {
     public class ProjectManager : IOperations<Project>
@@ -40,8 +44,8 @@ namespace PPM.Domain
                 Console.WriteLine(resultProject.Status);
             }
         }
-     
-         public Result Add(Project Proj)
+
+        public Result Add(Project Proj)
         {
             Result result = new Result() { IsSuccess = true };
             try
@@ -82,7 +86,7 @@ namespace PPM.Domain
             if (resPro.IsSuccess)
             {
                 foreach (Project res in resPro.results)
-                { 
+                {
                     Console.WriteLine(res.Pro_Id + " : " + res.Name);
                 }
             }
@@ -101,7 +105,7 @@ namespace PPM.Domain
             {
                 Console.WriteLine(result.Status);
             }
-            
+
         }
 
         public Result Remove(int id)
@@ -170,7 +174,7 @@ namespace PPM.Domain
             EmployeeManager m1 = new EmployeeManager();
             Employee employee = new Employee();
             Console.WriteLine("Choose Project From Below Project List: Project ID:Project Name");
-            var resPro = ListAll ();
+            var resPro = ListAll();
             if (resPro.IsSuccess)
             {
                 foreach (Project result in resPro.results)
@@ -198,7 +202,7 @@ namespace PPM.Domain
                 Console.WriteLine(res.Status);
             }
             Console.Write("Enter the Id of the employee: ");
-            employee.ID  = Convert.ToInt32(Console.ReadLine());
+            employee.ID = Convert.ToInt32(Console.ReadLine());
             var valid = m1.IsvalidEmp(employee);
             if (valid.IsSuccess)
             {
@@ -255,7 +259,7 @@ namespace PPM.Domain
                 result.IsSuccess = false;
             }
             return result;
-            
+
         }
 
 
@@ -311,8 +315,158 @@ namespace PPM.Domain
             return result;
 
         }
+    
+        public Result ToXmlSerialization(string fileName)
+        {
+            Result actionResult = new Result() { IsSuccess = true };
+            try
+            {
+                if (_projectList.Count > 0)
+                {
+                    //string filePath = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("F:\\PPM\\PPM.Model"), "AppData", fileName)
+                    //var filePath = System.IO.File.Create(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic) + fileName)
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Project>));
+                    using (TextWriter tw = new StreamWriter(fileName))
+                    {
+                        serializer.Serialize(tw, _projectList);
+                        tw.Close();
+                    }
+                }
+                else
+                {
+                    actionResult.IsSuccess = false;
+                    actionResult.Status = "Project List is Empty!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.IsSuccess = false;
+                actionResult.Status = "Error Ocooured!" + e.Message;
+            }
+            return actionResult;
+        }
+
+        public Result ToTxtFile(string fileName)
+        {
+            Result actionResult = new Result() { IsSuccess = true };
+            try
+            {
+                if (_projectList.Count > 0)
+                {
+                    using (TextWriter sw = new StreamWriter(fileName))
+                    {
+                        foreach (Project pro in _projectList)
+                        {
+         sw.WriteLine("Project ID: " + pro.Pro_Id + "\nProject Name: " + pro.Name + "\nStarting Date: " + pro.Start_Date.ToShortDateString() + 
+                                "\nEnding Date: " + pro.End_Date.ToShortDateString() + "\nBudget: " + pro.Budget);
+                            sw.WriteLine("Employee Assigned:");
+                            if (pro.EmpName != null)
+                            {
+                                foreach (Employee e in pro.EmpList)
+                                {
+                                    sw.WriteLine("Employee Id: " + e.ID + " " + "|" + "Employee Name : " + e.EmpName + " " + "|" + "Role : " + e.Rolename);
+                                }
+                            }
+                            else
+                            {
+                                sw.WriteLine("No Employee Assigned!");
+                            }
+                            sw.WriteLine("-------------------------------------------------------");
+                            actionResult.Status = "Project Is Saved in The Text File!";
+                        }
+                    }
+                }
+                else
+                {
+                    actionResult.IsSuccess = false;
+                    actionResult.Status = "Project list is empty!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.IsSuccess = false;
+                actionResult.Status = "Error Occoured" + "\n" + e.Message;
+            }
+
+            return actionResult;
+        }
+
+        public Result ToAdoDB()
+        {
+            Result actionResult = new Result() { IsSuccess = true };
+            string conn = "Server=(ESN0OA3)PRINCESQL; Database=mvcCrudedb;Integrated security=true;TrustServerCertificate=true";
+            SqlConnection myConn = new SqlConnection(conn);
+            string str = "DROP TABLE IF EXISTS project";
+            try
+            {
+                myConn.Open();
+                using (SqlCommand command = new SqlCommand(str, myConn))
+                {
+                    command.ExecuteNonQuery();
+                    actionResult.Status = "Old Data Dropped Successfully!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.IsSuccess = false;
+                actionResult.Status = e.Message;
+            }
+            finally
+            {
+                if (myConn.State == ConnectionState.Open)
+                {
+                    myConn.Close();
+                }
+            }
+            if (actionResult.IsSuccess)
+            {
+                try
+                {
+                    myConn.Open();
+                    using (SqlCommand command = new SqlCommand("CREATE TABLE project (Pro_Id int,ProjectName varchar(50), StartDate datetime, EndDate datetime, Budget decimal, EmpId int);", myConn))
+                    {
+                        command.ExecuteNonQuery();
+
+                        foreach (Project project in _projectList)
+                        {
+                            foreach (Employee emp in project.EmpList)
+                            {
+                                int id = (int)project.Pro_Id;
+                                int EmpId = (int)emp.ID;
+                                string insertQ = "INSERT INTO project values(@Pro_Id,@Name,@Start_Date, @End_Date, @Budget,@EmpId)";
+                                SqlCommand command1 = new SqlCommand(insertQ, myConn);
+                                command1.Parameters.AddWithValue("@ProjectId", project.Pro_Id);
+                                command1.Parameters.AddWithValue("@ProjectName", project.Name);
+                                command1.Parameters.AddWithValue("@StartDate", project.Start_Date);
+                                command1.Parameters.AddWithValue("@EndDate", project.End_Date);
+                                command1.Parameters.AddWithValue("@Budget", project.Budget);
+                               // command1.Parameters.AddWithValue("@EmpId", EmpId);
+                                command1.ExecuteNonQuery();
+                            }
+                        }
+                        actionResult.Status = actionResult.Status + "\n" + "Table project Added SuccessFully!";
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    actionResult.IsSuccess = false;
+                    actionResult.Status = e.Message;
+                }
+                finally
+                {
+                    if (myConn.State == ConnectionState.Open)
+                    {
+                        myConn.Close();
+                    }
+                }
+            }
+            return actionResult;
+        }
     }
 }
+    
+
 
    
 

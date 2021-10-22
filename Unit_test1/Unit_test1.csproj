@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PPM.Domain\PPM.Domain.csproj" />
-    <ProjectReference Include="..\PPM.UI.CLI\PPM.UI.Console.csproj" />
+    <ProjectReference Include="..\PPM.UI.CLI\PPM.UI.CLI.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\Prolifcis_P_M_2\\Prolifcis_P_M_2.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\PPM.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\PPM.Domain.csproj",
+        "projectName": "PPM.Domain",
+        "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\PPM.Domain.csproj",
+        "packagesPath": "C:\\Users\\PRINCE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\PRINCE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj": {
+                "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.IdentityModel.Protocols": {
+              "target": "Package",
+              "version": "[6.13.1, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj",
+        "projectName": "PPM.Model",
+        "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj",
+        "packagesPath": "C:\\Users\\PRINCE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\PRINCE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj",
+        "projectName": "PPM.UI.CLI",
+        "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj",
+        "packagesPath": "C:\\Users\\PRINCE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\PRINCE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\PPM.Domain.csproj": {
+                "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\PPM.Domain.csproj"
+              },
+              "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj": {
+                "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.26, )"
+            },
+            "Swashbuckle.Core": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\Prolifcis_P_M_2\\Prolifcis_P_M_2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\Prolifcis_P_M_2\\Prolifcis_P_M_2.csproj",
+        "projectName": "Prolifcis_P_M_2",
+        "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\Prolifcis_P_M_2\\Prolifcis_P_M_2.csproj",
+        "packagesPath": "C:\\Users\\PRINCE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\Prolifcis_P_M_2\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\PRINCE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj": {
+                "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

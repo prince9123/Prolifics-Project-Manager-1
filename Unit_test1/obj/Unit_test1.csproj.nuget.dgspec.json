@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
             "System.Runtime": {
               "target": "Package",
               "version": "[4.3.1, )"
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -126,16 +130,16 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.Console.csproj": {
+    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.Console.csproj",
-        "projectName": "PPM.UI.Console",
-        "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.Console.csproj",
+        "projectUniqueName": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj",
+        "projectName": "PPM.UI.CLI",
+        "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj",
         "packagesPath": "C:\\Users\\PRINCE\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\obj\\",
         "projectStyle": "PackageReference",
@@ -197,7 +201,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -228,8 +232,8 @@
               "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\PPM.Domain.csproj": {
                 "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Domain\\PPM.Domain.csproj"
               },
-              "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.Console.csproj": {
-                "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.Console.csproj"
+              "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj": {
+                "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.UI.CLI\\PPM.UI.CLI.csproj"
               }
             }
           }
@@ -272,7 +276,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
