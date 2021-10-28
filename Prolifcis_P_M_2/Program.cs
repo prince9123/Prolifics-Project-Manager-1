@@ -1,11 +1,8 @@
-﻿using PPM.Model;
-using PPM.UI.CLI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PPM.UI.CLI;
+
 namespace Prolifics_P_M
 {
-   public class Program
+    public class Program
     {
         public static void Main()
         {

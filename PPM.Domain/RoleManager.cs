@@ -254,6 +254,50 @@ namespace PPM.Domain
             }
             return actionResult;
         }
+        public Result ToEFDB()
+        {
+            Result actionResult = new Result() { IsSuccess = true };
+            try
+            {
+                if (_roleList.Count > 0)
+                {
+                    using (var db = new context())
+                    {
+                        List<Role> roleList = db.Roles.ToList();
+                        foreach (Role role in _roleList)
+                        {
+                            if (roleList.Exists(r => r.RoleID == role.RoleID))
+                            {
+                                var r = roleList.Single(r => r.RoleID == role.RoleID);
+                                db.Roles.Remove(r);
+                                db.SaveChanges();
+
+                                db.Add(role);
+                                db.SaveChanges();
+                            }
+                            else
+                            {
+                                db.Roles.Add(role);
+                                db.SaveChanges();
+                            }
+
+                        }
+                        actionResult.Status = "Role Added to Database Successfully!";
+                    }
+                }
+                else
+                {
+                    actionResult.IsSuccess = false;
+                    actionResult.Status = "Role List is Empty!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.IsSuccess = false;
+                actionResult.Status = e.Message;
+            }
+            return actionResult;
+        }
 
     }
 }

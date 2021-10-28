@@ -85,7 +85,7 @@ namespace PPM.UI.CLI
                             {
                                 foreach (Project result1 in ResPro.results)
                                 {
-                                    Console.WriteLine("Project id: " + result1.Pro_Id + "\nProject Name: " + result1.Name + "\nstarting date: " + result1.Start_Date + "\nEnd Date:" + result1.End_Date + "\nBudget :" + result1.Budget);
+                                    Console.WriteLine("Project id: " + result1.ProjecID + "\nProject Name: " + result1.Name + "\nstarting date: " + result1.Start_Date + "\nEnd Date:" + result1.End_Date + "\nBudget :" + result1.Budget);
                                 }
 
                             }
@@ -103,9 +103,9 @@ namespace PPM.UI.CLI
                             {
                                 foreach (Project result1 in ResPro1.results)
                                 {
-                                    if (result1.Pro_Id == n1)
+                                    if (result1.ProjecID == n1)
                                     {
-                                        Console.WriteLine("Project id: " + result1.Pro_Id + "\nProject Name: " + result1.Name + "\nstarting date: " + result1.Start_Date + "\nEnd Date:" + result1.End_Date + "\nBudget :" + result1.Budget);
+                                        Console.WriteLine("Project id: " + result1.ProjecID + "\nProject Name: " + result1.Name + "\nstarting date: " + result1.Start_Date + "\nEnd Date:" + result1.End_Date + "\nBudget :" + result1.Budget);
 
                                     }
                                 }
@@ -358,7 +358,11 @@ namespace PPM.UI.CLI
                         break;
                     case 4:
                         Console.WriteLine("---SAVE AS DB-EF METHOD---");
+                        DBModule dB1 = new DBModule();
+                        dB1.DB_EF();
                         break;
+                    
+                        
                 }
             }
             catch (Exception)

@@ -312,8 +312,32 @@ namespace Domain
             }
             return actionResult;
         }
+        public Result ToEFDB()
+        {
+            Result actionResult = new Result() { IsSuccess = true };
+            try
+            {
+                using (var db = new context())
+                {
+                    foreach (Employee employee in _employeeList)
+                    {
+
+                        db.Employees.Add(employee);
+                        db.SaveChanges();
+                    }
+                }
+                actionResult.Status = "Employee Saved to Database Successfully";
+            }
+            catch (Exception e)
+            {
+                actionResult.IsSuccess = true;
+                actionResult.Status = e.Message;
+            }
+            return actionResult;
+        }
     }
 }
+
 
 
 

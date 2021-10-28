@@ -18,8 +18,8 @@ namespace PPM.Domain
             Project project = new Project();
             try
             {
-                Console.WriteLine("Enter Project Pro_Id");
-                project.Pro_Id = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Project ProjecID");
+                project.ProjecID = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter Project Name");
                 project.Name = Console.ReadLine();
                 Console.WriteLine("Enter Project Start_Date");
@@ -87,7 +87,7 @@ namespace PPM.Domain
             {
                 foreach (Project res in resPro.results)
                 {
-                    Console.WriteLine(res.Pro_Id + " : " + res.Name);
+                    Console.WriteLine(res.ProjecID + " : " + res.Name);
                 }
             }
             else
@@ -114,11 +114,11 @@ namespace PPM.Domain
             Result action = new Result() { IsSuccess = true };
             try
             {
-                if (_projectList.Exists(p => p.Pro_Id == id))
+                if (_projectList.Exists(p => p.ProjecID == id))
                 {
-                    var itemToRemove = _projectList.Single(s => s.Pro_Id == id);
+                    var itemToRemove = _projectList.Single(s => s.ProjecID == id);
                     _projectList.Remove(itemToRemove);
-                    action.Status = "Project is Deleted Successfully " + project.Pro_Id;
+                    action.Status = "Project is Deleted Successfully " + project.ProjecID;
                 }
                 else
                 {
@@ -134,18 +134,18 @@ namespace PPM.Domain
             return action;
         }
 
-        public Result Remove(Employee emp, int Pro_Id2)
+        public Result Remove(Employee emp, int ProId2)
         {
             Result result = new Result() { IsSuccess = true };
             Project project = new Project();
             try
             {
-                if (_projectList.Exists(p => p.Pro_Id == Pro_Id2))
+                if (_projectList.Exists(p => p.ProjecID == ProId2))
                 {
-                    if (_projectList.Single(s => s.Pro_Id == Pro_Id2).EmpList.Exists(n => n.ID == emp.ID))
+                    if (_projectList.Single(s => s.ProjecID == ProId2).EmpList.Exists(n => n.ID == emp.ID))
                     {
-                        var itemToRemove = _projectList.Single(s => s.Pro_Id == Pro_Id2).EmpList.Single(e => e.ID == emp.ID);
-                        _projectList.Single(s => s.Pro_Id == Pro_Id2).EmpList.Remove(itemToRemove);
+                        var itemToRemove = _projectList.Single(s => s.ProjecID == ProId2).EmpList.Single(e => e.ID == emp.ID);
+                        _projectList.Single(s => s.ProjecID == ProId2).EmpList.Remove(itemToRemove);
                         result.Status = "Employee is Deleted Successfully " + emp.ID;
                     }
                     else
@@ -157,7 +157,7 @@ namespace PPM.Domain
                 else
                 {
                     result.IsSuccess = false;
-                    result.Status = "Project Id is not in the List!" + Pro_Id2;
+                    result.Status = "Project Id is not in the List!" + ProId2;
                 }
             }
             catch (Exception e)
@@ -179,7 +179,7 @@ namespace PPM.Domain
             {
                 foreach (Project result in resPro.results)
                 {
-                    Console.WriteLine(result.Pro_Id + " : " + result.Name);
+                    Console.WriteLine(result.ProjecID + " : " + result.Name);
                 }
             }
             else
@@ -231,7 +231,7 @@ namespace PPM.Domain
                 Console.WriteLine(valid.Status);
             }
         }
-        public Result IsEmployeePresentinProject(int Pro_Id1)
+        public Result IsEmployeePresentinProject(int ProId1)
         {
             Result result = new Result() { IsSuccess = true };
             uint count = 0;
@@ -239,7 +239,7 @@ namespace PPM.Domain
             {
                 foreach (Project Pro in _projectList)
                 {
-                    if (Pro.EmpList.Exists(prop => prop.ID == Pro_Id1))
+                    if (Pro.EmpList.Exists(prop => prop.ID == ProId1))
                     {
                         count++;
                     }
@@ -263,7 +263,7 @@ namespace PPM.Domain
         }
 
 
-        public Result AddEmployeetoProject(Employee emp, int Pro_Id1)
+        public Result AddEmployeetoProject(Employee emp, int ProId1)
         {
             Result result = new Result() { IsSuccess = true };
 
@@ -271,20 +271,20 @@ namespace PPM.Domain
             {
                 if (_projectList.Count > 0)
                 {
-                    if (_projectList.Exists(p => p.Pro_Id == Pro_Id1))
+                    if (_projectList.Exists(p => p.ProjecID == ProId1))
                     {
-                        if (_projectList.Single(p => p.Pro_Id == Pro_Id1).EmpList == null)
+                        if (_projectList.Single(p => p.ProjecID == ProId1).EmpList == null)
                         {
-                            _projectList.Single(p => p.Pro_Id == Pro_Id1).EmpList = new List<Employee>();
+                            _projectList.Single(p => p.ProjecID == ProId1).EmpList = new List<Employee>();
                         }
 
-                        if (_projectList.Single(p => p.Pro_Id == Pro_Id1).EmpList.Exists(e => e.ID == emp.ID))
+                        if (_projectList.Single(p => p.ProjecID == ProId1).EmpList.Exists(e => e.ID == emp.ID))
                         {
-                            result.Status = $"Employee Id : {emp.ID} already exists in this project: {Pro_Id1}";
+                            result.Status = $"Employee Id : {emp.ID} already exists in this project: {ProId1}";
                         }
                         else
                         {
-                            _projectList.Single(p => p.Pro_Id == Pro_Id1).EmpList.Add(emp);
+                            _projectList.Single(p => p.ProjecID == ProId1).EmpList.Add(emp);
                             result.Status = "Employee is Added to project";
 
                         }
@@ -293,7 +293,7 @@ namespace PPM.Domain
                     else
                     {
                         result.IsSuccess = false;
-                        result.Status = "Project Id not found!" + Pro_Id1;
+                        result.Status = "Project Id not found!" + ProId1;
                     }
                 }
                 else
@@ -357,7 +357,7 @@ namespace PPM.Domain
                     {
                         foreach (Project pro in _projectList)
                         {
-         sw.WriteLine("Project ID: " + pro.Pro_Id + "\nProject Name: " + pro.Name + "\nStarting Date: " + pro.Start_Date.ToShortDateString() + 
+         sw.WriteLine("Project ID: " + pro.ProjecID + "\nProject Name: " + pro.Name + "\nStarting Date: " + pro.Start_Date.ToShortDateString() + 
                                 "\nEnding Date: " + pro.End_Date.ToShortDateString() + "\nBudget: " + pro.Budget);
                             sw.WriteLine("Employee Assigned:");
                             if (pro.EmpName != null)
@@ -431,11 +431,11 @@ namespace PPM.Domain
                         {
                             foreach (Employee emp in project.EmpList)
                             {
-                                int id = (int)project.Pro_Id;
+                                int id = (int)project.ProjecID;
                                 int EmpId = (int)emp.ID;
                                 string insertQ = "INSERT INTO project values(@Pro_Id,@Name,@Start_Date, @End_Date, @Budget,@EmpId)";
                                 SqlCommand command1 = new SqlCommand(insertQ, myConn);
-                                command1.Parameters.AddWithValue("@ProjectId", project.Pro_Id);
+                                command1.Parameters.AddWithValue("@ProjectId", project.ProjecID);
                                 command1.Parameters.AddWithValue("@ProjectName", project.Name);
                                 command1.Parameters.AddWithValue("@StartDate", project.Start_Date);
                                 command1.Parameters.AddWithValue("@EndDate", project.End_Date);
@@ -460,6 +460,59 @@ namespace PPM.Domain
                         myConn.Close();
                     }
                 }
+            }
+            return actionResult;
+        }
+        public Data_Result<Project> ToEFDB()
+        {
+
+            Data_Result<Project> actionResult = new Data_Result<Project>() { IsSuccess = true };
+            try
+            {
+
+                if (_projectList.Count > 0)
+                {
+
+                    using (var db = new context())
+                    {
+                        Project project1 = new Project();
+                        List<Project> projectList = db.Projects.ToList();
+                        foreach (Project project in _projectList)
+                        {
+                            project1.ProjecID = project.ProjecID;
+                            project1.Name = project.Name;
+                            project1.Budget = project.Budget;
+                            project1.End_Date = Convert.ToDateTime(project.End_Date.ToShortDateString());
+                            project1.Start_Date = Convert.ToDateTime(project.Start_Date.ToShortDateString());
+                            if (projectList.Exists(p => p.ProjecID == project.ProjecID))
+                            {
+                                var p = projectList.Single(p => p.ProjecID == project.ProjecID);
+                                db.Projects.Remove(p);
+                                db.SaveChanges();
+
+                                db.Projects.Add(project1);
+                                db.SaveChanges();
+                            }
+                            else
+                            {
+                                db.Projects.Add(project1);
+                                db.SaveChanges();
+                            }
+
+                        }
+                    }
+                    actionResult.Status = "Project Saved to Database Successfully";
+                }
+                else
+                {
+                    actionResult.IsSuccess = false;
+                    actionResult.Status = "Project List is Empty!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.IsSuccess = false;
+                actionResult.Status = e.Message;
             }
             return actionResult;
         }

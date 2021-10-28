@@ -39,7 +39,33 @@ namespace PPM.UI.CLI
             }
 
         }
-        
+        public void DB_EF()
+        {
+            static String GetTimestamp(DateTime value)
+            {
+                return value.ToString("yyyy/MM/dd/HH:mm:ss:dffff");
+            }
+            String timeStamp = GetTimestamp(DateTime.Now);
+            EmployeeManager employeeManager = new EmployeeManager();
+            ProjectManager projectManager = new ProjectManager();
+            RoleManager roleManager = new RoleManager();
+            var saveRoleToDB = roleManager.ToEFDB();
+            var saveEmployeeToDB = employeeManager.ToEFDB();
+            var saveProjectToDB = projectManager.ToEFDB();
+            if (saveRoleToDB.IsSuccess || saveProjectToDB.IsSuccess)
+            {
+                Console.WriteLine(saveRoleToDB.Status + " \n " + saveProjectToDB.Status + " \n " + saveEmployeeToDB.Status);
+                Console.WriteLine("Saved To Database Successfully!");
+                Console.WriteLine(timeStamp);
+
+            }
+            else
+            {
+                Console.WriteLine(saveRoleToDB.Status + "\n" + saveEmployeeToDB.Status + "\n" + saveProjectToDB.Status);
+                //Console.WriteLine(saveRoleToDB.Status + "\n" + saveProjectToDB.Status)
+            }
+        }
+
     }
 }
 

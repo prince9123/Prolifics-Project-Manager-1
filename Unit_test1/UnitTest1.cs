@@ -15,7 +15,7 @@ namespace Unit_test1
         {
             ProjectManager Pro = new ProjectManager();
             Project P1 = new Project();
-            P1.Pro_Id = 1;
+            P1.ProjecID = 1;
             P1.Name = "Prince";
             P1.Start_Date = Convert.ToDateTime("1-3-2021");
             P1.End_Date = Convert.ToDateTime("3-3-2021");

@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace PPM.Model
 {
    public class Project
     {
-        public int Pro_Id { get; set; }
+        [Required]
+        [Key] 
+        public int ProjecID { get; set; }
         public string Name { get; set; }
         public DateTime Start_Date { get; set; }
         public DateTime End_Date { get; set; }

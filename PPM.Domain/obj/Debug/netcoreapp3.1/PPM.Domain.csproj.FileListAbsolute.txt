@@ -1,4 +1,6 @@
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\bin\Debug\netcoreapp3.1\PPM.Domain.deps.json
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\bin\Debug\netcoreapp3.1\PPM.Domain.runtimeconfig.json
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\bin\Debug\netcoreapp3.1\PPM.Domain.runtimeconfig.dev.json
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\bin\Debug\netcoreapp3.1\PPM.Domain.dll
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\bin\Debug\netcoreapp3.1\PPM.Domain.pdb
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\bin\Debug\netcoreapp3.1\PPM.Model.dll
@@ -10,3 +12,5 @@ C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\obj\Debug\netcoreapp3.1\PP
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\obj\Debug\netcoreapp3.1\PPM.Domain.csproj.CoreCompileInputs.cache
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\obj\Debug\netcoreapp3.1\PPM.Domain.dll
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\obj\Debug\netcoreapp3.1\PPM.Domain.pdb
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\obj\Debug\netcoreapp3.1\PPM.Domain.genruntimeconfig.cache
+C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Domain\obj\Debug\netcoreapp3.1\PPM.Domain.csproj.CopyComplete
