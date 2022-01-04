@@ -12,39 +12,6 @@ namespace PPM.Domain
     public class ProjectManager : IOperations<Project>
     {
         public static List<Project> _projectList = new List<Project>();
-
-        public void AddProject()
-        {
-            Project project = new Project();
-            try
-            {
-                Console.WriteLine("Enter Project ProjecID");
-                project.ProjecID = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Project Name");
-                project.Name = Console.ReadLine();
-                Console.WriteLine("Enter Project Start_Date");
-                project.Start_Date = Convert.ToDateTime(Console.ReadLine());
-                Console.WriteLine("Enter Project End_Date");
-                project.End_Date = Convert.ToDateTime(Console.ReadLine());
-                Console.WriteLine("Enter Project Budget");
-                project.Budget = Convert.ToDecimal(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error Ocurred!" + e.ToString());
-            }
-            var resultProject = Add(project);
-            if (!resultProject.IsSuccess)
-            {
-                Console.WriteLine("Project failed to Add");
-                Console.WriteLine(resultProject.Status);
-            }
-            else
-            {
-                Console.WriteLine(resultProject.Status);
-            }
-        }
-
         public Result Add(Project Proj)
         {
             Result result = new Result() { IsSuccess = true };

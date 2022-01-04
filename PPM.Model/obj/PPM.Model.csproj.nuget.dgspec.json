@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj": {}
+    "C:\\Users\\PRINCE\\git_demo\\changes\\PPM.Model\\PPM.Model.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj": {
+    "C:\\Users\\PRINCE\\git_demo\\changes\\PPM.Model\\PPM.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj",
+        "projectUniqueName": "C:\\Users\\PRINCE\\git_demo\\changes\\PPM.Model\\PPM.Model.csproj",
         "projectName": "PPM.Model",
-        "projectPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\PPM.Model.csproj",
+        "projectPath": "C:\\Users\\PRINCE\\git_demo\\changes\\PPM.Model\\PPM.Model.csproj",
         "packagesPath": "C:\\Users\\PRINCE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PRINCE\\source\\repos\\Prolifics_P_M\\PPM.Model\\obj\\",
+        "outputPath": "C:\\Users\\PRINCE\\git_demo\\changes\\PPM.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PRINCE\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

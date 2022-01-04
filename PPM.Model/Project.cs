@@ -8,10 +8,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PPM.Model
 {
-   public class Project
+    public class Project
     {
         [Required]
-        [Key] 
+        [Key]
         public int ProjecID { get; set; }
         public string Name { get; set; }
         public DateTime Start_Date { get; set; }
@@ -19,5 +19,7 @@ namespace PPM.Model
         public decimal Budget { get; set; }
         public string EmpName { get; set; }
         public List<Employee> EmpList;
+        
     }
 }
+

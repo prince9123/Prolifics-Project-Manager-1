@@ -11,3 +11,16 @@ C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Model\obj\Debug\netcoreapp3.1\PPM
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.pdb
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.genruntimeconfig.cache
 C:\Users\PRINCE\source\repos\Prolifics_P_M\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.csproj.AssemblyReference.cache
+C:\Users\PRINCE\git_demo\changes\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.deps.json
+C:\Users\PRINCE\git_demo\changes\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.runtimeconfig.json
+C:\Users\PRINCE\git_demo\changes\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.runtimeconfig.dev.json
+C:\Users\PRINCE\git_demo\changes\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.dll
+C:\Users\PRINCE\git_demo\changes\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.pdb
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.csproj.AssemblyReference.cache
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.AssemblyInfoInputs.cache
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.AssemblyInfo.cs
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.csproj.CoreCompileInputs.cache
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.dll
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.pdb
+C:\Users\PRINCE\git_demo\changes\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.genruntimeconfig.cache

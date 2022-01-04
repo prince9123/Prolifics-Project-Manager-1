@@ -4,13 +4,14 @@ using PPM.Domain;
 using PPM.Model;
 using System.Text.RegularExpressions;
 using Domain;
+using Web.Controllers;
 
 namespace PPM.UI.CLI
-{ 
+{
     public class CommandInterface
     {
 
-        public  void StartProject()
+        public void StartProject() 
         {
 
             Console.WriteLine("Choose the option you want to select:");
@@ -56,7 +57,7 @@ namespace PPM.UI.CLI
             }
         }
 
-        public  void ProjectModule()
+        public void ProjectModule()
         {
             Console.WriteLine("Choose the option you want to select:");
             Console.WriteLine("Press 1: Add Project");
@@ -76,7 +77,7 @@ namespace PPM.UI.CLI
                     switch (j)
                     {
                         case 1:
-                            m1.AddProject();
+                           CommandInterface.AddProject();
                             break;
                         case 2:
                             Console.WriteLine("Project Details: ");
@@ -137,7 +138,7 @@ namespace PPM.UI.CLI
             }
         }
 
-        public  void EmployeeModule()
+        public void EmployeeModule()
         {
             Console.WriteLine("Choose the Option you want to select:");
             Console.WriteLine("Press 1: Add Employee");
@@ -156,7 +157,7 @@ namespace PPM.UI.CLI
                     switch (j)
                     {
                         case 1:
-                            m2.AddEmployee();
+                            CommandInterface.AddEmployee();
                             break;
                         case 2:
                             Console.WriteLine("Employee Details: ");
@@ -165,7 +166,7 @@ namespace PPM.UI.CLI
                             {
                                 foreach (Employee e1 in ResEmp.results)
                                 {
-                                    Console.WriteLine("Employee id: " + e1.ID + "\nEmployee_Name Name: " + e1.EmpName + "\nContact: " + e1.Contact + "\nEmail :" 
+                                    Console.WriteLine("Employee id: " + e1.ID + "\nEmployee_Name Name: " + e1.EmpName + "\nContact: " + e1.Contact + "\nEmail :"
                                         + e1.Email + "\nRoleid :" + e1.Role_id);
 
 
@@ -214,7 +215,7 @@ namespace PPM.UI.CLI
                 }
             }
         }
-        public  void RoleModule()
+        public void RoleModule()
         {
             Console.WriteLine("Choose the Option you want to select:");
             Console.WriteLine("Press 1: Add Role");
@@ -233,7 +234,7 @@ namespace PPM.UI.CLI
                     switch (j)
                     {
                         case 1:
-                            m3.AddRole();
+                            CommandInterface.AddRole();
                             break;
                         case 2:
                             Console.WriteLine("Role Details: ");
@@ -292,7 +293,7 @@ namespace PPM.UI.CLI
             }
         }
 
-        public  void save()
+        public void save()
         {
             try
             {
@@ -361,8 +362,8 @@ namespace PPM.UI.CLI
                         DBModule dB1 = new DBModule();
                         dB1.DB_EF();
                         break;
-                    
-                        
+
+
                 }
             }
             catch (Exception)
@@ -370,11 +371,81 @@ namespace PPM.UI.CLI
                 Console.WriteLine("Oops, Error Occoured at Save State!");
                 Console.WriteLine("-----------------------------------------------------");
                 StartProject();
-                
+
             }
 
         }
+        public void AddEmployee()
+        {
+            Employee employee = new Employee();
+            try
+            {
+                Console.WriteLine("Enter employee ID");
+                employee.ID = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter the  name of employee");
+                employee.EmpName = Console.ReadLine();
+                Console.WriteLine("Enter employee Contact");
+                employee.Contact = Convert.ToInt64(Console.ReadLine());
+                Console.WriteLine("Enter empoyee email");
+                employee.Email = Console.ReadLine();
+                Console.WriteLine("Enter the RoleId");
+                employee.Role_id = Convert.ToInt32(Console.ReadLine());
+                EmployeeManager employeeManager = new EmployeeManager();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Ocurred!" + ex.ToString());
+            }
+            EmployeeControllers employeController = new();
+            employeController.AddEmployee(employee);
+        }
 
-       
+        public static void AddRole()
+        {
+            Role ROLE = new Role();
+            try
+            {
+                Console.Write("Enter Role ID: ");
+                ROLE.RoleID = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter Role Name: ");
+                ROLE.Rolename = Console.ReadLine().ToUpper();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Ocurred!" + ex.ToString());
+            }
+            RoleControllers roleController = new();
+            roleController.AddRole(ROLE);
+        }
+        public void AddProject()
+        {
+            Project project = new Project();
+            try
+            {
+                Console.WriteLine("Enter Project ProjecID");
+                project.ProjecID = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Project Name");
+                project.Name = Console.ReadLine();
+                Console.WriteLine("Enter Project Start_Date");
+                project.Start_Date = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Enter Project End_Date");
+                project.End_Date = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Enter Project Budget");
+                project.Budget = Convert.ToDecimal(Console.ReadLine());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error Ocurred!" + e.ToString());
+            }
+            ProjectControllers projectController = new();
+           projectController.AddProject(project);
+        }
+    }
+}
+
+namespace PPM.UI.CLI
+{
+    class EmployeeControllers
+    {
     }
 }

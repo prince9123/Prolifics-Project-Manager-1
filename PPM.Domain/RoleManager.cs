@@ -12,31 +12,6 @@ namespace PPM.Domain
     public class RoleManager : IOperations<Role>
     {
         public static List<Role>_roleList = new List<Role>();
-        public void AddRole()
-        {
-            Role ROLE = new Role();
-            try
-            {
-                Console.Write("Enter Role ID: "); 
-                ROLE.RoleID = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter Role Name: ");
-                ROLE.Rolename = Console.ReadLine().ToUpper();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error Ocurred!" + ex.ToString());
-            }
-            var resultRole = Add(ROLE);
-            if (!resultRole.IsSuccess)
-            {
-                Console.WriteLine("Role failed to Add");
-                Console.WriteLine(resultRole.Status);
-            }
-            else
-            {
-                Console.WriteLine(resultRole.Status);
-            }
-        }
         //public interface IOperations<T>
         //Add Result Add(T t)
                //ListById
@@ -248,7 +223,7 @@ namespace PPM.Domain
                 {
                     if (myConn.State == ConnectionState.Open)
                     {
-                        myConn.Close();
+                        myConn.Close(); 
                     }
                 }
             }
@@ -268,7 +243,7 @@ namespace PPM.Domain
                         {
                             if (roleList.Exists(r => r.RoleID == role.RoleID))
                             {
-                                var r = roleList.Single(r => r.RoleID == role.RoleID);
+                                var r = roleList.Single(r => r.RoleID == role.RoleID );
                                 db.Roles.Remove(r);
                                 db.SaveChanges();
 

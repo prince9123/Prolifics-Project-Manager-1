@@ -10,45 +10,14 @@ using PPM.Model;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace Domain
 {
     public class EmployeeManager : IOperations<Employee>
     {
         public static List<Employee> _employeeList = new List<Employee>();
-        private SqlCommand command1;
 
-        public void AddEmployee()
-        {
-            Employee employee = new Employee();
-            try
-            {
-                Console.WriteLine("Enter employee ID");
-                employee.ID = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter the  name of employee");
-                employee.EmpName = Console.ReadLine();
-                Console.WriteLine("Enter employee Contact");
-                employee.Contact = Convert.ToInt64(Console.ReadLine());
-                Console.WriteLine("Enter empoyee email");
-                employee.Email = Console.ReadLine();
-                Console.WriteLine("Enter the RoleId");
-                employee.Role_id = Convert.ToInt32(Console.ReadLine());
-                EmployeeManager employeeManager = new EmployeeManager();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error Ocurred!" + ex.ToString());
-            }
-            var resultEmployee = Add(employee);
-            if (!resultEmployee.IsSuccess)
-            {
-                Console.WriteLine("Employee failed to Add");
-                Console.WriteLine(resultEmployee.Status);
-            }
-            else
-            {
-                Console.WriteLine(resultEmployee.Status);
-            }
-        }
+        public SqlCommand command1 { get; private set; }
 
         public Result Add(Employee emp)
         {
@@ -206,7 +175,7 @@ namespace Domain
             catch (Exception e)
             {
                 actionResult.IsSuccess = false;
-                actionResult.Status = "Error Occoured!" + e.Message;
+                actionResult.Status = "Error Occoured!" + e.Message; 
             }
             return actionResult;
         }
@@ -292,9 +261,11 @@ namespace Domain
                             command1.Parameters.AddWithValue("@Email", employee.Email);
                             command1.Parameters.AddWithValue("@Role_id", employee.Role_id);
                             command1.ExecuteNonQuery();
+
                         }
-                        actionResult.Status = actionResult.Status + "\n" + "Table employee Added SuccessFully!";
                     }
+                    actionResult.Status = actionResult.Status + "\n" + "Table employee Added SuccessFully!";
+
 
                 }
                 catch (Exception e)
